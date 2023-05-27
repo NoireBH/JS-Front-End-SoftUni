@@ -1,4 +1,4 @@
-function checkIfpalidrome(numbers){
+function checkIfPalidrome(numbers){
 
     for (let index = 0; index < numbers.length; index++) {
         
@@ -15,5 +15,5 @@ function checkIfpalidrome(numbers){
 
 }
 
-checkIfpalidrome([123,323,421,121]);
-checkIfpalidrome([32,2,232,1010]);
+checkIfPalidrome([123,323,421,121]);
+checkIfPalidrome([32,2,232,1010]);
