@@ -27,10 +27,14 @@ function browserHistory(browserInfo, array) {
 
   }
 
-  console.log(browserInfo['Browser Name']);
-  console.log(`Open Tabs: ${browserInfo['Open Tabs'].join(", ")}`);
-  console.log(`Recently Closed: ${browserInfo['Recently Closed'].join(", ")}`);
-  console.log(`Browser Logs: ${browserInfo['Browser Logs'].join(", ")}`);
+  PrintBroserInfo();
+
+    function PrintBroserInfo() {
+        console.log(browserInfo['Browser Name']);
+        console.log(`Open Tabs: ${browserInfo['Open Tabs'].join(", ")}`);
+        console.log(`Recently Closed: ${browserInfo['Recently Closed'].join(", ")}`);
+        console.log(`Browser Logs: ${browserInfo['Browser Logs'].join(", ")}`);
+    }
 }
 
 browserHistory(
