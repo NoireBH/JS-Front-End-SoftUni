@@ -7,6 +7,7 @@ function addItem() {
 
     let newAnchor = document.createElement('a');
     newAnchor.textContent = '[Delete]';
+    newAnchor.setAttribute('href','#');
     newAnchor.addEventListener('click',deleteEmail);
     li.appendChild(newAnchor);
 
@@ -14,10 +15,11 @@ function addItem() {
 
     document.getElementById('newItemText').value = '';
    
+    function deleteEmail(e){
+
+        let emailToDelete = e.currentTarget.parentElement;
+        emailToDelete.remove();
+    }
+
 }
 
-function deleteEmail(e){
-
-    let emailToDelete = e.currentTarget.parentElement;
-    emailToDelete.remove();
-}
