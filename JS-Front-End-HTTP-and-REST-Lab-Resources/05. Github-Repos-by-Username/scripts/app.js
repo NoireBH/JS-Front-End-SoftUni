@@ -4,7 +4,13 @@ function loadRepos() {
 	 document.getElementById('repos').innerHTML = '';
 
 	fetch(BASE_URL + userName + "/repos")
-	.then((data) => data.json())
+	.then((data) =>{
+		
+		if (data.ok == false) {
+			throw new Error(`Error : ${data.status} ${data.statusText}`);
+		}
+		return data.json();
+	})
 	.then((repos) => {
 		for (const repo of repos) {
 			const list = document.getElementById('repos');
@@ -16,6 +22,10 @@ function loadRepos() {
 			list.appendChild(li);
 		}
 		
-	});
+	})
+	.catch((err) => {
+		const list = document.getElementById('repos');
+		list.textContent = err.message;
+	})
 	
 }
