@@ -3,6 +3,8 @@ async function loadCommits() {
   let repository = document.getElementById("repo").value;
   let commits = document.getElementById("commits");
   const link = `https://api.github.com/repos/${userName}/${repository}/commits`;
+    
+  document.getElementById('commits').innerHTML = '';
 
   try {
     const response = await fetch(link);
