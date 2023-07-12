@@ -1,5 +1,5 @@
 function attachEvents() {
-  // TODO:
+  let studentInputs = document.getElementsByClassName('inputs');
 }
 
 attachEvents();
