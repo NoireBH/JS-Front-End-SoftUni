@@ -1,64 +1,56 @@
-function thePianist(input) {
-  let numberOfPieces = Number(input.shift());
+function solve(input) {
+  let rows = Number(input.shift());
 
-  let piecesArray = [];
-  let count = 0;
-  while (count < numberOfPieces) {
-    let info = input.shift().split("|");
-    let pieceName = info[0];
-    let composer = info[1];
-    let key = info[2];
+  let piecesMap = {};
 
-    let piece = { pieceName, composer, key };
-    piecesArray.push(piece);
-    count++;
+  // Add to map
+  for (let index = 0; index < rows; index++) {
+      let [ piece, composer, key ] = input.shift().split('|');
+      
+      piecesMap[piece] = { composer, key };
   }
 
-  let commandLine = input.shift();
-  let command = commandLine.split("|")[0];
+  // Parse commands
+  input.forEach(line => {
+      let tokens = line.split('|');
+      let command = tokens.shift();
 
-  while (command !== "Stop") {
-    let splitCommandLine = commandLine.split("|");
-    if (command === "Add") {
-      let pieceName = splitCommandLine[1];
-      let composer = splitCommandLine[2];
-      let key = splitCommandLine[3];
+      if (command === 'Add') {
+          let [ piece, composer, key ] = tokens;
 
-      let piece = { pieceName, composer, key };
-      piecesArray.push(piece);
+          if (!piecesMap.hasOwnProperty(piece)) {
+              piecesMap[piece] = { composer, key };
+              console.log(`${piece} by ${composer} in ${key} added to the collection!`);
+          } else {
+              console.log(`${piece} is already in the collection!`);
+          }
+      } else if (command === 'Remove') {
+          let piece = tokens.shift();
 
-      console.log(
-        `${pieceName} by ${composer} in ${key} added to the collection!`
-      );
+          if (!piecesMap.hasOwnProperty(piece)) {
+              console.log(`Invalid operation! ${piece} does not exist in the collection.`);
+          } else {
+              delete piecesMap[piece];
+              console.log(`Successfully removed ${piece}!`);
+          }
+      } else if (command === 'ChangeKey') {
+          let [ piece, newKey ] = tokens;
 
-    } else if (command === "Remove") {
-      let pieceName = splitCommandLine[1];
-      let pieceToRemove = piecesArray.find((x) => x.pieceName === pieceName);
-
-      if (pieceToRemove != null) {
-        let indexOfPiece = piecesArray.indexOf(pieceToRemove);
-        console.log(`Successfully removed ${pieceName}!`)
-        piecesArray.splice(indexOfPiece,1); 
+          if (!piecesMap.hasOwnProperty(piece)) {
+              console.log(`Invalid operation! ${piece} does not exist in the collection.`);
+          } else {
+              piecesMap[piece].key = newKey;
+              console.log(`Changed the key of ${piece} to ${newKey}!`);
+          }
       }
-    }
+  });
 
-    commandLine = input.shift();
-    command = commandLine.split("|")[0];
+  let entries = Object.entries(piecesMap);
+
+  for (const [ piece, info ] of entries) {
+      console.log(`${piece} -> Composer: ${info.composer}, Key: ${info.key}`);
   }
 }
-
-thePianist([
-  "3",
-  "Fur Elise|Beethoven|A Minor",
-  "Moonlight Sonata|Beethoven|C# Minor",
-  "Clair de Lune|Debussy|C# Minor",
-  "Add|Sonata No.2|Chopin|B Minor",
-  "Add|Hungarian Rhapsody No.2|Liszt|C# Minor",
-  "Add|Fur Elise|Beethoven|C# Minor",
-  "Remove|Clair de Lune",
-  "ChangeKey|Moonlight Sonata|C# Major",
-  "Stop",
-]);
 
 thePianist([
   "4",
