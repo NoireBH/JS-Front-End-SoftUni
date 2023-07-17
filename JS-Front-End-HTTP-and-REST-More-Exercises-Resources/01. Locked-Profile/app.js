@@ -21,6 +21,7 @@ function lockedProfile() {
       let inputLocked = document.createElement("input");
       inputLocked.type = "radio";
       inputLocked.value = "lock";
+      inputLocked.checked = true;
       inputLocked.name = `user${userCount}Locked`;
       let labelUnlocked = document.createElement("label");
       labelUnlocked.textContent = "Unlock";

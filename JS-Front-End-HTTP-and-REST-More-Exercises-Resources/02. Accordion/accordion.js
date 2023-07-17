@@ -31,7 +31,7 @@ function solution() {
           `http://localhost:3030/jsonstore/advanced/articles/details/${this.id}`
         );
         const data2 = await res.json();
-
+     
         p.textContent = '';
       p.textContent = data2.content;
         divAccordion.appendChild(divExtra);
