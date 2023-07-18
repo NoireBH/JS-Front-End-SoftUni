@@ -74,6 +74,15 @@ function attachEvents() {
   function editBookHandler(e) {
     let form_h3 = formContainer.children[0];
     let formBtn = formContainer.children[5];
+    let titleInput = formContainer.children[2];
+    let authorInput = formContainer.children[4];
+    let trContainer = e.currentTarget.parentNode.parentNode;
+    let title = trContainer.children[0];
+    let author = trContainer.children[1];
+    console.log(author);
+    console.log(title);
+    titleInput.value = title.textContent
+    authorInput.value = author.textContent
     form_h3.textContent = "Edit FORM";
     formBtn.textContent = "Save";
     bookId = this.id;
