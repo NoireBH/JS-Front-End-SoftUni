@@ -22,7 +22,7 @@ function createDomElement(
   }
 
   if (classes && classes.length > 0) {
-    document.classList.add(...classes);
+    htmlElement.classList.add(...classes);
   }
 
   if (id) {
