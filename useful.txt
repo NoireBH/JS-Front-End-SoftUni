@@ -1,0 +1,51 @@
+
+FONT AWESOME
+
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+CSS RESET
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+VERTICAL LINE 
+
+.vertical-line {
+    background-color: red;
+    width: 50px;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+MAKE IMAGE FIT CONTAINER
+
+.image-container-introduction2 img{
+width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+JS 
+
+use entity icons: 
+
+put them in a object and use for example:
+`${labelToIconMap[label.value]}`
+label is an input we receive...
+i know its stupid...
+
+const labelToIconMap = {
+    "Feature": "&#8865;",
+    "Low Priority Bug": "&#9737;",
+    "High Priority Bug": "&#9888;",
+  };

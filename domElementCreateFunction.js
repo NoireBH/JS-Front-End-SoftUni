@@ -10,7 +10,7 @@ function createDomElement(
   const htmlElement = document.createElement(type);
 
   if (content && userInnerHtml) {
-    htmlElement.userInnerHtml = content;
+    htmlElement.innerHTML = content;
   } else {
     if (content && type !== "input") {
       htmlElement.textContent = content;
