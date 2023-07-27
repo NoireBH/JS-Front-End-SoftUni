@@ -34,15 +34,15 @@ function solve(input) {
       if (horseIndex === horseArray.length - 2) {
         let overtakingHorse = horseArray.splice(horseIndex, 1);
         horseArray.push(overtakingHorse[0]);
-        console.log(`${horse} rages 2 positions ahead.`);
       } else if (horseIndex < horseArray.length - 2) {
         let overtakingHorse = horseArray.splice(horseIndex, 1);
         let overtakenHorse = horseArray.splice(horseIndex + 1, 1);
         horseArray.push(overtakenHorse[0]);
         horseArray.push(overtakingHorse[0]);
-
-        console.log(`${overtakingHorse} rages 2 positions ahead.`);
       }
+
+      console.log(`${horse} rages 2 positions ahead.`);
+
     } else {
       let firstPlace = horseArray.pop();
       let lastPlace = horseArray.shift();
