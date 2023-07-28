@@ -37,8 +37,8 @@ function solve(input) {
       } else if (horseIndex < horseArray.length - 2) {
         let overtakingHorse = horseArray.splice(horseIndex, 1);
         let overtakenHorse = horseArray.splice(horseIndex + 1, 1);
-        horseArray.push(overtakenHorse[0]);
-        horseArray.push(overtakingHorse[0]);
+        horseArray.splice(horseIndex + 1,0,overtakingHorse[0]);
+        horseArray.splice(horseIndex + 1,0,overtakenHorse[0]);
       }
 
       console.log(`${horse} rages 2 positions ahead.`);
