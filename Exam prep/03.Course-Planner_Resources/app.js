@@ -112,7 +112,7 @@ function solve() {
         divContainer,
         "Finish Course",
         null,
-        ["edit-btn"]
+        ["finish-btn"]
       );
       editBtn.addEventListener("click", editCourseHandler);
       finishBtn.addEventListener("click", finishCourseHandler);
