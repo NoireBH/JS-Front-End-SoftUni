@@ -49,7 +49,7 @@ function clearInputs(domInputs) {
   });
 }
 
-// turn the associative array with Object.values first then use it as a parameter
+
 function fieldsAreFilled(inputArray){
   let check = inputArray.every(x => x.value !== '');
   // let check = Object.values(inputArray).every(x => x.value !== '');
