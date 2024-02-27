@@ -1,0 +1,15 @@
+{
+  "name": "js-front-end-softuni",
+  "version": "1.0.0",
+  "description": "",
+  "main": "usefulFunctions.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
+  }
+}
